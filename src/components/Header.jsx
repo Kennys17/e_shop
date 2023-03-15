@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {NavLink, Link} from "react-router-dom";
 import {BsSearch} from "react-icons/bs";
 import compare from '../images/compare.svg';
 import wishlist from '../images/wishlist.svg';
 import user from '../images/user.svg';
-import cart from '../images/cart.svg'
-import menu from '../images/menu.svg'
+import cart from '../images/cart.svg';
+import menu from '../images/menu.svg';
+import MOCK_DATA from '../MOCK_DATA.json';
+
 
 const Header = () => {
+  const [searchList, setSearchList] = useState(MOCK_DATA);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(()=> {
+    const Debounce = setTimeout(()=> {
+      const filteredSearch = filterSearch(searchTerm, data);
+      setSearchList(filteredSearch);
+    }, 300);
+    return () => clearTimeout(Debounce);
+  },[searchTerm]); 
   
   return (
     <>
@@ -36,8 +48,16 @@ const Header = () => {
           </div>
           <div className="col-5">
           <div className="input-group">
-  <input type="text" className="form-control py-2" placeholder="Поиск товара" aria-label="Поиск товара" aria-describedby="basic-addon2"/>
+  <input value={searchTerm} type="text" className="form-control py-2" placeholder="Поиск товара" aria-label="Поиск товара" 
+  
+  aria-describedby="basic-addon2" onChange={(e)=> setSearchTerm(e.target.value)}/>
+  
   <span className="input-group-text p-3" id="basic-addon2"><BsSearch className="fs-6"/></span>
+  
+    {searchList.map((product, index) => {
+      return<div className='input-group' key={index}></div>
+    })}
+  
 </div>
 
           </div>

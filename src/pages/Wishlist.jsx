@@ -32,9 +32,9 @@ const Wishlist = () => {
                 </div>
                 <div className='py-3 px-3'>
                 <h5 className='title'>
-                    Honor T1 7.0 1 GB 8 BG ROM Планшет
+                    Apple T10 GB 8 BG ROM Планшет
                 </h5>
-                <h6 className='price'>45.000₸</h6>
+                <h6 className='price'>85.000₸</h6>
                 </div>
                 </div>
             </div>
@@ -46,9 +46,9 @@ const Wishlist = () => {
                 </div>
                 <div className='py-3 px-3'>
                 <h5 className='title'>
-                    Honor T1 7.0 1 GB 8 BG ROM Планшет
+                    Oppo T3 1 GB 8 BG ROM Планшет
                 </h5>
-                <h6 className='price'>45.000₸</h6>
+                <h6 className='price'>50.000₸</h6>
                 </div>
                 </div>
             </div>
